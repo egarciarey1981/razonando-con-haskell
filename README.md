@@ -1,6 +1,6 @@
 # Razonando con Haskell
 
-http://www.lcc.uma.es/~pepeg/pfHaskell/portada.jpg
+[alt Portada del libro](http://www.lcc.uma.es/~pepeg/pfHaskell/portada.jpg)
 
 El libro [Razonando con Haskell](http://www.lcc.uma.es/~pepeg/pfHaskell/) lo escribieron mis profesores de la [Universidad de Málaga](https://www.uma.es) en 2004.
 
