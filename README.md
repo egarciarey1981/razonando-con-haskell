@@ -1,6 +1,8 @@
 # Razonando con Haskell
 
-El libro [Razonando con Haskell](https://g.co/kgs/2aTriK) lo escribieron mis profesores de la [Universidad de Málaga](https://www.uma.es) en 2004.
+http://www.lcc.uma.es/~pepeg/pfHaskell/portada.jpg
+
+El libro [Razonando con Haskell](http://www.lcc.uma.es/~pepeg/pfHaskell/) lo escribieron mis profesores de la [Universidad de Málaga](https://www.uma.es) en 2004.
 
 Ha estado olvidado en mi biblioteca durante muchos años y mi intención es volver a leerlo y hacer sus ejercicios.
 
