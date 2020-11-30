@@ -6,7 +6,7 @@ los años múltiplos de 100 sólo son bisiestos cuando a su vez son múltiplos d
 -}
 
 esBisiesto :: Int -> Bool
-esBisiesto x
-    | multiplo x 100 = multiplo x 400
-    | otherwise = multiplo x 4
-    where multiplo x y = mod x y == 0
+esBisiesto año
+    | esDivPor 4 = not (esDivPor 100) || esDivPor 400
+    | otherwise = False
+    where esDivPor x = mod año x == 0
