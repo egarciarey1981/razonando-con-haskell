@@ -1,8 +1,6 @@
 -- Escriba una función que calcule el número de días de un mes, dados los valores
 -- numéricos del mes y año. NOTA: Considere los años bisiestos para febrero.
 
-module T02_E30_NumDiasMes where
-
 import T02_E29_AnoBisiesto
 
 diasDelMes :: Integer -> Integer -> Integer
