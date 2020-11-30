@@ -4,8 +4,6 @@
 -- Defina un operador (|>) de forma que se tenga:
 -- [f1, f2, ..., fn] |> x :: [f1 x, f2 x, ..., fn x] 
 
-module T02_E28_ListaDeFunciones where
-
 (|>) :: [Integer -> Integer] -> Integer -> [Integer]
 [] |> _ = []
 (f1:fs) |> x = [f1 x] ++ (fs |> x)
