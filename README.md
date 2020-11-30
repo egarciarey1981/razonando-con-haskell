@@ -3,7 +3,7 @@
 
 El libro [Razonando con Haskell](http://www.lcc.uma.es/~pepeg/pfHaskell/) lo escribieron mis profesores de la [Universidad de Málaga](https://www.uma.es) en 2004.
 
-Parece que la [programación funcional](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional) se ha puesto de moda. Este libro ha estado olvidado en mi biblioteca durante muchos años y creo que es buen el momento para volver a leerlo y hacer sus ejercicios.
+Parece que la [programación funcional](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional) se ha puesto de moda. Este libro ha estado olvidado en mi biblioteca durante muchos años y creo que es buen momento para volver a leerlo y hacer sus ejercicios.
 
 Como Haskell no es tan popular como PHP o Java, voy a aprovechar que GitHub nos ofrece un repositorio público para compartir mis soluciones, quiźas así ayude a alguien o entre en contacto con alguien con inquietudes similares.
 
