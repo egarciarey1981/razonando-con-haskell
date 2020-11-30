@@ -1,11 +1,9 @@
 -- Escriba una función que calcule el número de días de un mes, dados los valores
 -- numéricos del mes y año. NOTA: Considere los años bisiestos para febrero.
 
-esBisiesto :: Integer -> Bool
-esBisiesto año
-    | esMultiploDe 4 = not (esMultiploDe 100) || esMultiploDe 400
-    | otherwise = False
-    where esMultiploDe n = mod año n == 0
+module T02_E30_NumDiasMes where
+
+import T02_E29_AnoBisiesto
 
 diasDelMes :: Integer -> Integer -> Integer
 diasDelMes mes año 
