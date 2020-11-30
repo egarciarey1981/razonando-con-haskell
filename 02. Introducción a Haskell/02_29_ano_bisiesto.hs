@@ -3,7 +3,7 @@
 -- los años múltiplos de 100 sólo son bisiestos cuando a su vez son múltiplos de
 -- 400 (por ejemplo 1800 no es bisiesto, mientras que 2000 sí).
 
-esBisiesto :: Int -> Bool
+esBisiesto :: Integer -> Bool
 esBisiesto año
     | esMultiploDe 4 = not (esMultiploDe 100) || esMultiploDe 400
     | otherwise = False
