@@ -9,4 +9,4 @@ esBisiesto :: Int -> Bool
 esBisiesto año
     | esDivPor 4 = not (esDivPor 100) || esDivPor 400
     | otherwise = False
-    where esDivPor x = mod año x == 0
+    where esDivPor n = mod año n == 0
