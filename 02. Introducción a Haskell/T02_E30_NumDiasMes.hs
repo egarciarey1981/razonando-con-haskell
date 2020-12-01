@@ -5,6 +5,6 @@ import T02_E29_AnoBisiesto
 
 diasDelMes :: Integer -> Integer -> Integer
 diasDelMes mes año = dias !! fromIntegral (mes - 1)
-    where
-        dias = [31, feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-        feb = if esBisiesto año then 29 else 28
+  where
+    dias = [31, feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    feb = if esBisiesto año then 29 else 28
