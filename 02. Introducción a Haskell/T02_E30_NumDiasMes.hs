@@ -4,9 +4,7 @@
 import T02_E29_AnoBisiesto
 
 diasDelMes :: Integer -> Integer -> Integer
-diasDelMes mes año 
-    | not (mes `elem` [1..12]) = error "El mes debe ser un número entre 1 y 12"
-    | mes `elem` [1,3,5,7,8,10,12] = 31
-    | mes `elem` [4,6,9,11] = 30
-    | esBisiesto año = 29
-    | otherwise = 28
+diasDelMes mes año = dias !! fromIntegral (mes - 1)
+    where
+        dias = [31, feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        feb = if esBisiesto año then 29 else 28
