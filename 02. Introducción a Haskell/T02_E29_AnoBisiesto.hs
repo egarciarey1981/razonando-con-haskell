@@ -7,6 +7,7 @@ module T02_E29_AnoBisiesto where
 
 esBisiesto :: Integer -> Bool
 esBisiesto año
-    | esMultiploDe 4 = not (esMultiploDe 100) || esMultiploDe 400
+    | esMultiploDe 100 = esMultiploDe 400
+    | esMultiploDe 4 = True
     | otherwise = False
     where esMultiploDe n = mod año n == 0
