@@ -11,7 +11,7 @@
 
 aEntero :: [Integer] -> Integer
 aEntero [x] = x
-aEntero (x : y : zs) = aEntero(x * 10 + y : zs)
+aEntero (x : y : zs) = aEntero (x * 10 + y : zs)
 
 aLista :: Integer -> [Integer]
 aLista 0 = [0]
