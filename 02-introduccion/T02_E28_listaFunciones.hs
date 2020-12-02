@@ -6,4 +6,4 @@
 
 (|>) :: [Integer -> Integer] -> Integer -> [Integer]
 [] |> _ = []
-(f1 : fs) |> x = f1 x : (fs |> x)
+(f1:fs) |> x = f1 x : (fs|>x)

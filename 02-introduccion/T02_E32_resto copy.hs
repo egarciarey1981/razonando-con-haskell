@@ -4,4 +4,4 @@
 resto :: Integer -> Integer -> Integer
 resto x y
   | x < y = x
-  | otherwise = resto (x - y) y
+  | otherwise = resto (x-y) y

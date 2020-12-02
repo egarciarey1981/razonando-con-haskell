@@ -4,4 +4,4 @@
 cociente :: Integer -> Integer -> Integer
 cociente x y
   | x < y = 0
-  | otherwise = 1 + cociente (x - y) y
+  | otherwise = 1 + cociente (x-y) y

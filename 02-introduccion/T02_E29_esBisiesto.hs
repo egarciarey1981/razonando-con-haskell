@@ -8,7 +8,7 @@ module T02_E29_esBisiesto where
 esBisiesto :: Integer -> Bool
 esBisiesto año
   | esMultiploDe 100 = esMultiploDe 400
-  | esMultiploDe 4 = True
-  | otherwise = False
+  | esMultiploDe 4   = True
+  | otherwise        = False
   where
-    esMultiploDe n = mod año n == 0
+    esMultiploDe n = año `mod` n == 0

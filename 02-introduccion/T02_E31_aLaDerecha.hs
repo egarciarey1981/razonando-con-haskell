@@ -3,4 +3,4 @@
 -- 1463 :: Integer
 
 aLaDerecha :: Integer -> Integer -> Integer
-aLaDerecha digito entero = entero * 10 + digito
+aLaDerecha digito entero = (entero * 10) + digito
