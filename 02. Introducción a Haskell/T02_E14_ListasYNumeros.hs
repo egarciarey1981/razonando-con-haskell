@@ -14,6 +14,14 @@ aEntero [x] = x
 aEntero (x : y : zs) = aEntero(x * 10 + y : zs)
 
 aLista :: Integer -> [Integer]
-aLista x
-  | x < 10 = [x]
-  | otherwise = aLista (x `div` 10) ++ [x `mod` 10]
+aLista 0 = [0]
+aLista 1 = [1]
+aLista 2 = [2]
+aLista 3 = [3]
+aLista 4 = [4]
+aLista 5 = [5]
+aLista 6 = [6]
+aLista 7 = [7]
+aLista 8 = [8]
+aLista 9 = [9]
+aLista x = aLista (x `div` 10) ++ [x `mod` 10]
