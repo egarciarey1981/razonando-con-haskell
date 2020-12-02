@@ -10,8 +10,8 @@
 -- [2, 3, 4] :: [Integer]
 
 aEntero :: [Integer] -> Integer
-aEntero [] = 0
-aEntero (x : xs) = x * (10 ^ length xs) + aEntero xs
+aEntero [x] = x
+aEntero (x : y : zs) = aEntero(x * 10 + y : zs)
 
 aLista :: Integer -> [Integer]
 aLista x
