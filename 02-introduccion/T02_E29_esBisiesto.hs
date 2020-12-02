@@ -3,7 +3,7 @@
 -- los años múltiplos de 100 sólo son bisiestos cuando a su vez son múltiplos de
 -- 400 (por ejemplo 1800 no es bisiesto, mientras que 2000 sí).
 
-module T02_E29_AnoBisiesto where
+module T02_E29_esBisiesto where
 
 esBisiesto :: Integer -> Bool
 esBisiesto año
