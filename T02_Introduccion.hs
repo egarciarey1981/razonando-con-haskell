@@ -70,3 +70,59 @@ prodDesdeHasta :: Integer -> Integer -> Integer
 prodDesdeHasta a b
   | a == b = a
   | otherwise = a * prodDesdeHasta (a + 1) b
+
+-- Escriba una función variaciones que calcule el número de variaciones de m elementos
+-- tomados de n en n. Use para ello la siguiente relación:
+--
+--                      m!
+-- variaciones m n = -------
+--                    (m-n)
+--
+-- Escriba otra alternativa que use esta otra:
+--
+-- variaciones m n = (m-n+1) * (m-n+2) * ... * (m-1) * m
+
+variaciones :: Integer -> Integer -> Integer
+variaciones m n = div (prodDesdeHasta 1 m) (m - n)
+
+variaciones' :: Integer -> Integer -> Integer
+variaciones' m n = prodDesdeHasta (m - n + 1) m
+
+-- Escriba una función que calcule números combinatorios con la siguiente relación:
+--
+-- / m \        m!
+
+-- |   | = -------------
+-- \ n /    (m-n)! * n!
+--
+-- Escriba otra versión que use estas relaciones:
+--
+-- / m \        / m \        / m \   / m-1 \   /m-1\
+-- |   | = 1    |   | = 1    |   | = |     | + |   |
+-- \ 0 /        \ m /        \ n /   \ n-1 /   \ n /
+combinaciones :: Integer -> Integer -> Integer
+combinaciones m n = div (prodDesdeHasta 1 m) (prodDesdeHasta 1 (m - n) * prodDesdeHasta 1 n)
+
+combinaciones' :: Integer -> Integer -> Integer
+combinaciones' m n
+  | n == 0 = 1
+  | n == m = 1
+  | otherwise = combinaciones' (m - 1) (n - 1) + combinaciones' (m - 1) n
+
+-- Escriba una función que devuelva el i-ésimo número de la sucesión de Fibonacci.
+-- Esta sucesión tiene como primer término 0, como segundo el 1, y cualquier otro
+-- término se obtiene sumando los dos que le preceden: 0, 1, 1, 2, 3, 5, 8, 13...
+
+fibonacci :: Integer -> Integer
+fibonacci 0 = 0
+fibonacci 1 = 1
+fibonacci n = fibonacci (n - 1) + fibonacci (n - 2)
+
+-- Escriba una función qe determine el mayor de tres números enteros.
+-- Escriba otra para cuatro números.
+
+mayor :: Integer -> Integer -> Integer -> Integer
+mayor a b c = max a (max b c)
+
+mayor' :: Integer -> Integer -> Integer -> Integer -> Integer
+mayor' a b c d = max a (mayor b c d)
