@@ -2,15 +2,15 @@
 --
 -- aEntro [2, 3, 4]
 -- 234
---
--- Defina la función recíroca aLista
---
--- aLista 234
--- [2, 3, 4]
 
 aEntero :: [Integer] -> Integer
 aEntero [x] = x
 aEntero (x : y : zs) = aEntero ((x * 10 + y) : zs)
+
+-- Defina la función recíroca aLista
+--
+-- aLista 234
+-- [2, 3, 4]
 
 aLista :: Integer -> [Integer]
 aLista n
