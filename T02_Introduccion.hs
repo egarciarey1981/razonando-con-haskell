@@ -1,3 +1,22 @@
+-- Defina una función  que transforme una lista de dígitos en el correspondiente valor entero:
+--
+-- aEntro [2, 3, 4]
+-- 234
+--
+-- Defina la función recíroca aLista
+--
+-- aLista 234
+-- [2, 3, 4]
+
+aEntero :: [Integer] -> Integer
+aEntero [x] = x
+aEntero (x : y : zs) = aEntero ((x * 10 + y) : zs)
+
+aLista :: Integer -> [Integer]
+aLista n
+  | n < 10 = [n]
+  | otherwise = aLista (div n 10) ++ [mod n 10]
+
 -- Sea una lista de funciones de enteros en enteros:
 -- [f1, f2, ..., fn] :: [Integer -> Integer]
 --
@@ -91,7 +110,6 @@ variaciones' m n = prodDesdeHasta (m - n + 1) m
 -- Escriba una función que calcule números combinatorios con la siguiente relación:
 --
 -- / m \        m!
-
 -- |   | = -------------
 -- \ n /    (m-n)! * n!
 --
@@ -126,3 +144,31 @@ mayor a b c = max a (max b c)
 
 mayor' :: Integer -> Integer -> Integer -> Integer -> Integer
 mayor' a b c d = max a (mayor b c d)
+
+-- Escriba una función que tome tres números enteros y devuelva una terna con
+-- los númros ordenados en orden creciente:
+--
+-- ordena3 10 4 7
+-- (4, 7, 10)
+
+ordena3 :: Integer -> Integer -> Integer -> (Integer, Integer, Integer)
+ordena3 a b c
+  | a > b = ordena3 b a c
+  | b > c = ordena3 a c b
+  | otherwise = (a, b, c)
+
+-- Escriba una función que determine si un número positivo de exactamente
+-- cuatro cifras es capicúa o no:
+--
+-- esCapicua 1221           esCapicua 12
+-- True                     ERROR: número de cifras incorrecto
+
+numCifras :: Integer -> Integer
+numCifras n
+  | n < 10 = 1
+  | otherwise = 1 + numCifras (div n 10)
+
+esCapicua :: Integer -> Bool
+esCapicua n
+  | numCifras n /= 4 = error "número de cifras incorrecto"
+  | otherwise = aLista n == reverse (aLista n)
