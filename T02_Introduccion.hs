@@ -34,8 +34,7 @@ aLista n
 
 esBisiesto :: Integer -> Bool
 esBisiesto año
-  | esMultiploDe 400 = True
-  | esMultiploDe 100 = False
+  | esMultiploDe 100 = esMultiploDe 400
   | otherwise = esMultiploDe 4
   where
     esMultiploDe n = año `mod` n == 0
@@ -50,7 +49,8 @@ diasDelMes mes año = dias !! (mes - 1)
     feb = if esBisiesto año then 29 else 28
 
 -- Escriba una función que añada un dígito a la derecha de un número entero:
--- MAIN> 3 `aLaDerechaDe` 146
+--
+-- 3 `aLaDerechaDe` 146
 -- 1463 :: Integer
 
 aLaDerecha :: Integer -> Integer -> Integer
@@ -74,6 +74,7 @@ cociente x y
 
 -- Escriba una función recursiva que devuelva el sumatorio desde un valor entero
 -- hasta otro:
+--
 -- sumDesdeHasta a b => a + (a+1) + (a+2) + ... + (b-1) + b
 
 sumDesdeHasta :: Integer -> Integer -> Integer
@@ -83,6 +84,7 @@ sumDesdeHasta a b
 
 -- Escriba una función recursiva que devuelva el producto desde un valor entero
 -- hasta otro:
+--
 -- prodDesdeHasta a b => a * (a+1) * (a+2) * ... * (b-1) * b
 
 prodDesdeHasta :: Integer -> Integer -> Integer
@@ -102,7 +104,10 @@ prodDesdeHasta a b
 -- variaciones m n = (m-n+1) * (m-n+2) * ... * (m-1) * m
 
 variaciones :: Integer -> Integer -> Integer
-variaciones m n = div (prodDesdeHasta 1 m) (m - n)
+variaciones m n = dividendo `div` dividor
+  where
+    dividendo = prodDesdeHasta 1 m
+    dividor = m - n
 
 variaciones' :: Integer -> Integer -> Integer
 variaciones' m n = prodDesdeHasta (m - n + 1) m
@@ -119,7 +124,10 @@ variaciones' m n = prodDesdeHasta (m - n + 1) m
 -- |   | = 1    |   | = 1    |   | = |     | + |   |
 -- \ 0 /        \ m /        \ n /   \ n-1 /   \ n /
 combinaciones :: Integer -> Integer -> Integer
-combinaciones m n = div (prodDesdeHasta 1 m) (prodDesdeHasta 1 (m - n) * prodDesdeHasta 1 n)
+combinaciones m n = dividendo `div` dividor
+  where
+    dividendo = prodDesdeHasta 1 m
+    dividor = prodDesdeHasta 1 (m - n) * prodDesdeHasta 1 n
 
 combinaciones' :: Integer -> Integer -> Integer
 combinaciones' m n
@@ -163,12 +171,64 @@ ordena3 a b c
 -- esCapicua 1221           esCapicua 12
 -- True                     ERROR: número de cifras incorrecto
 
-numCifras :: Integer -> Integer
-numCifras n
-  | n < 10 = 1
-  | otherwise = 1 + numCifras (div n 10)
-
 esCapicua :: Integer -> Bool
 esCapicua n
-  | numCifras n /= 4 = error "número de cifras incorrecto"
+  | n < 1000 = error "número de cifras incorrecto"
+  | n > 9999 = error "número de cifras incorrecto"
+  | otherwise = d1 == d4 && d2 == d3
+  where
+    d1 = n `mod` 10
+    d2 = (n `mod` 100) `div` 10
+    d3 = (n `mod` 1000) `div` 100
+    d4 = n `div` 1000
+
+esCapicua' :: Integer -> Bool
+esCapicua' n
+  | length (aLista n) /= 4 = error "número de cifras incorrecto"
   | otherwise = aLista n == reverse (aLista n)
+
+-- Escriba una función que calcule la suma de las cifras de un número natural:
+--
+-- sumaCifras 123
+-- 6
+
+sumaCifras :: Integer -> Integer
+sumaCifras n
+  | n < 10 = n
+  | otherwise = sumaCifras (n `div` 10) + n `mod` 10
+
+-- Escriba una función que calcule el número de cifras de un número natural
+-- (sin ceros a la izquierda):
+--
+-- numeroCifras 123
+-- 3
+
+numeroCifras :: Integer -> Integer
+numeroCifras n = fromIntegral (length (aLista n))
+
+-- Escriba una función trocear que tome un número de n dígitos y que, usando
+-- sólo sumas y restas, devuelva un par donde el primer elemento corresponde
+-- a los n-1 primeros dígitos del número y el segundo elemento sea el dígito
+-- n-ésimo. Por ejemplo:
+--
+-- trocear 1234
+-- (123, 4)
+
+trocear :: Integer -> (Integer, Integer)
+trocear n
+  | n < 9 = (0, n)
+  | otherwise = let (a, b) = trocear (n - 10) in (1 + a, b)
+
+-- Escriba una función concatenar que concatene los dígitos de dos números
+-- no nulos. Por ejemplo:
+--
+-- concatenar 123 45                     concatenar 123 0
+-- 12345                                 123
+
+concatenar :: Integer -> Integer -> Integer
+concatenar x 0 = x
+concatenar x y = aEntero (aLista x ++ aLista y)
+
+concatenar' :: Integer -> Integer -> Integer
+concatenar' x 0 = x
+concatenar' x y = let (a, b) = trocear y in b `aLaDerecha` (concatenar' x a)
